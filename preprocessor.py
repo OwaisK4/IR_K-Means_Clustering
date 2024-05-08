@@ -1,18 +1,16 @@
 import nltk
 from string import ascii_letters
 
-"""
-Preprocessor class that processes each token.
-It works as follows:
-1. Read the raw text from file using cp1252 encoding (Because the given documents contain some Latin-1 characters).
-2. Tokenize them using multiple delimiters (i.e. self.delimiters).
-3. Clean the tokens i.e. casefold, strip whitespace and remove all digits and punctuation.
-4. Stem the tokens using Porter Stemmer imported from nltk library.
-5. Store the cleaned tokens in self.tokens.
-"""
-
-
 class Preprocessor:
+    """
+    Preprocessor class that processes each token.
+    It works as follows:
+    1. Read the raw text from file using cp1252 encoding (Because the given documents contain some Latin-1 characters).
+    2. Tokenize them using multiple delimiters (i.e. self.delimiters).
+    3. Clean the tokens i.e. casefold, strip whitespace and remove all digits and punctuation.
+    4. Stem the tokens using Porter Stemmer imported from nltk library.
+    5. Store the cleaned tokens in self.tokens.
+    """
     def __init__(self, filepath: str = None) -> None:
         self.raw_text: str = open(filepath, "r", encoding="cp1252").read()
         self.delimiters = [" ", "_", "-", ",", "|", ";", ":", "!", "?"]
